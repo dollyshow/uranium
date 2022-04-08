@@ -44,9 +44,80 @@ router.get('/i/:id', function (req, res) {
     if(a>=array.length){
 
         res.send("invalid input")
+        //problem 3
     }else{
         res.send(array[a])
     }   
 
 })
-module.exports = router;
+
+//problem 4
+router.get('/films', function (req, res) {
+    
+   let array1= [{
+       "id":1,"name":"The Shining"
+   },{
+       "id":2,"name":"incendies"
+   },{
+       "id":3,"name":"Rang de basanti"
+   },{
+       "id":4,"name":"Finding name"
+   }];
+
+        
+       res.send(array1)
+});
+
+//problem 5
+router.get('/i/:id', function (req, res) {
+    let a=req.params.indexNumber
+    let array2= [{
+        "id":1,"name":"The Shining"
+    },{
+        "id":2,"name":"incendies"
+    },{
+        "id":3,"name":"Rang de basanti"
+    },{
+        "id":4,"name":"Finding name"
+    }];
+    
+   if(a>=array2.length){
+//if(a[i].id==req.params.indexNumber)
+        res.send("invalid input")
+        
+    }else{
+        res.send(array2[a])
+    }   
+
+})
+
+//     if(a[i].id==req.params.indexNumber){
+//     res.send("no movies exits with this id")
+    
+// }else{
+//     res.send(array1[a])
+// };
+ 
+     //  module.exports = router;
+        //adding this comment for no reason
+
+        //assignment
+        router.get('/miss-No', function (req, res) {
+            let numArr=[1,2,3,4,5,7,8,9]
+            let sum=0;
+            let missnum;
+            for(let i=0;i<arr.length;i++){
+                sum=sum+numArr[i];
+            }
+
+            missnum=(((arr.length+1)*arr.length+2)/2)-sum;
+            return missnum
+                
+            
+            
+        
+        
+        res.send(missing)
+
+        module.exports = router;
+        });
