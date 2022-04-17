@@ -1,23 +1,19 @@
-const authorModel = require("../models/authorModel")
-const bookModel= require("../models/bookModel")
+// <!DOCTYPE html>
+// <html>
+// <body>
 
-const createBook= async function (req, res) {
-    let book = req.body
-    let bookCreated = await bookModel.create(book)
-    res.send({data: bookCreated})
-}
+// <h2>JavaScript Functions</h2>
 
-const getBooksData= async function (req, res) {
-    let books = await bookModel.find()
-    res.send({data: books})
-}
+// <p>This example calls a function which performs a calculation, and returns the result:</p>
 
-const getBooksWithAuthorDetails = async function (req, res) {
-    let specificBook = await bookModel.find().populate('author_id')
-    res.send({data: specificBook})
+// <p id="demo"></p>
 
-}
+// <script>
+// function myFunction(p1, p2) {
+//   return p1 * p2;
+// }
+// document.getElementById("demo").innerHTML = myFunction(4, 3);
+// </script>
 
-module.exports.createBook= createBook
-module.exports.getBooksData= getBooksData
-module.exports.getBooksWithAuthorDetails = getBooksWithAuthorDetails
+// </body>
+// </html>
