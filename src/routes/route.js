@@ -1,41 +1,22 @@
+
 const express = require('express');
 const router = express.Router();
-// const UserModel= require("../models/userModel.js")
-const UserController= require("../controllers/userController")
-const BookController= require("../controllers/bookController")
+//const timestamp=require('log-timestamp');
+const moment=require("moment")
+const Controller = require("../controllers/userController")
 
-router.get("/test-me", function (req, res) {
-    res.send("My first ever api!")
-})
+function middleware1(req, res, next) {
+    let timestamp=moment().format('YYYY-MM-DD HH:mm:ss');
+    console.log(`${timestamp} , ${req.ip} , ${req.route.path}`)
+    next();
+}
 
-router.post("/createUser", UserController.createUser  )
+router.get("/api1", middleware1, Controller.api1)
 
-router.get("/getUsersData", UserController.getUsersData)
+router.get("/api2", middleware1, Controller.api2)
 
-router.post("/createBook", BookController.createBook  )
+router.get("/api3", middleware1, Controller.api3)
 
-router.get("/getBooksData", BookController.getBooksData)
+router.get("/api4", middleware1, Controller.api4)
 
-router.post("/updateBooks", BookController.updateBooks)
-router.post("/deleteBooks", BookController.deleteBooks)
-
-//MOMENT JS
-const moment = require('moment');
-router.get("/dateManipulations", function (req, res) {
-    
-    // const today = moment();
-    // let x= today.add(10, "days")
-
-    // let validOrNot= moment("29-02-1991", "DD-MM-YYYY").isValid()
-    // console.log(validOrNot)
-    
-    const dateA = moment('01-01-1900', 'DD-MM-YYYY');
-    const dateB = moment('01-01-2000', 'DD-MM-YYYY');
-
-    let x= dateB.diff(dateA, "days")
-    console.log(x)
-
-    res.send({ msg: "all good"})
-})
-
-module.exports = router;
+module.exports = router;  

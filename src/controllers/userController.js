@@ -1,15 +1,20 @@
-const UserModel= require("../models/userModel")
-
-const createUser= async function (req, res) {
-    let data= req.body
-    let savedData= await UserModel.create(data)
-    res.send({msg: savedData})
+const api1 = async function (req, res) {
+    res.send({ msg: "API1 is running" })
 }
 
-const getUsersData= async function (req, res) {
-    let allUsers= await UserModel.find()
-    res.send({msg: allUsers})
+const api2 = async function (req, res) {
+    res.send({ msg: "API2 is running" })
 }
 
-module.exports.createUser= createUser
-module.exports.getUsersData= getUsersData
+const api3 = async function (req, res) {
+    res.send({ msg: "API3 is running" })
+}
+
+const api4 = async function (req, res) {
+    res.send({ msg: "API4 is running" })
+}
+
+module.exports.api1 = api1; 
+module.exports.api2 = api2;
+module.exports.api3 = api3;
+module.exports.api4 = api4;
